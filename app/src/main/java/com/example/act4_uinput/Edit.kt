@@ -73,11 +73,17 @@ fun FormDataDiri(modifier: Modifier)
             value = textAlamat,
             singleLine = true,
             modifier = Modifier.width(250.dp),
-            label = {Text("Alamat Lengkap")},
+            label = {Text("Alamat")},
             onValueChange = {textAlamat = it}
         )
 
+        //status perkawinan : janda duda sudah menikah, ubah jadi column
 
+        Divider(
+            modifier = Modifier.padding(bottom = dimensionResource(R.dimen.padding_medium),
+                top = dimensionResource(R.dimen.padding_medium)),
+            thickness = dimensionResource(R.dimen.divider_tipis),
+            color = Color.DarkGray)
         Button(
             modifier = Modifier.padding(20.dp),
             enabled = textAlamat.isNotEmpty(),
