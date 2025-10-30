@@ -77,13 +77,9 @@ fun FormDataDiri(modifier: Modifier)
             onValueChange = {textAlamat = it}
         )
 
-        Divider(
-            modifier = Modifier.padding(bottom = dimensionResource(R.dimen.padding_medium),
-                top = dimensionResource(R.dimen.padding_medium)),
-            thickness = dimensionResource(R.dimen.divider_tipis),
-            color = Color.DarkGray)
+
         Button(
-            modifier = Modifier.fillMaxWidth(1f),
+            modifier = Modifier.padding(20.dp),
             enabled = textAlamat.isNotEmpty(),
             onClick = {nama = textNama; jenis = textJK; alamat = textAlamat}
         ) { Text(stringResource(R.string.submit)) }
