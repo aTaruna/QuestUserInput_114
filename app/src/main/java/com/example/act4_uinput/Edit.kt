@@ -6,6 +6,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -45,13 +46,16 @@ fun FormDataDiri(modifier: Modifier)
     var textNama by remember  { mutableStateOf("") }
     var textJK by remember  { mutableStateOf("") }
     var textAlamat by remember  { mutableStateOf("") }
+    var textStatus by remember { mutableStateOf("") }
 
     //variabel untuk menyimpan data dari komponen UI
     var nama by remember  { mutableStateOf("") }
     var jenis by remember  { mutableStateOf("") }
     var alamat by remember  { mutableStateOf("") }
 
+
     val gender:List<String> = listOf("Laki-laki","Perempuan")
+    val status:List<String> = listOf("Belum Menikah","Menikah")
 
 
 Column (modifier = Modifier
@@ -74,7 +78,10 @@ Column (modifier = Modifier
             label = {Text("Nama Lengkap")},
             onValueChange = {textNama = it}
         )
-        Row {
+        Spacer(modifier = Modifier.height(20.dp))
+        Text("JENIS KELAMIN")
+        Spacer(modifier = Modifier.height(10.dp))
+        Column {
             gender.forEach { item ->
                 Row (modifier = Modifier.selectable(
                     selected = textJK == item,
@@ -88,6 +95,11 @@ Column (modifier = Modifier
                 }
             }
         }
+
+        }
+        Spacer(modifier = Modifier.height(20.dp))
+        Text("ALAMAT")
+        Spacer(modifier = Modifier.height(10.dp))
         OutlinedTextField(
             value = textAlamat,
             singleLine = true,
@@ -95,8 +107,6 @@ Column (modifier = Modifier
             label = {Text("Alamat")},
             onValueChange = {textAlamat = it}
         )
-
-        //status perkawinan : janda duda sudah menikah, ubah jadi column
 
         Divider(
             modifier = Modifier.padding(bottom = dimensionResource(R.dimen.padding_medium),
