@@ -95,7 +95,22 @@ Column (modifier = Modifier
                 }
             }
         }
-
+        Spacer(modifier = Modifier.height(20.dp))
+        Text("STATUS PERKAWINAN")
+        Spacer(modifier = Modifier.height(10.dp))
+        Column {
+            status.forEach { item ->
+                Row (modifier = Modifier.selectable(
+                    selected = textStatus == item,
+                    onClick = {textStatus = item}),
+                    verticalAlignment = Alignment.CenterVertically){
+                    RadioButton(
+                        selected = textStatus == item,
+                        onClick = {textStatus = item}
+                    )
+                    Text(item)
+                }
+            }
         }
         Spacer(modifier = Modifier.height(20.dp))
         Text("ALAMAT")
