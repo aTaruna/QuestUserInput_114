@@ -1,14 +1,20 @@
 package com.example.act4_uinput
 
+import android.R.attr.fontWeight
+import android.text.Layout
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedCard
@@ -26,7 +32,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 
 @Composable
@@ -44,9 +53,19 @@ fun FormDataDiri(modifier: Modifier)
 
     val gender:List<String> = listOf("Laki-laki","Perempuan")
 
-    Column (modifier = Modifier.padding(top = 50.dp),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally){
+
+Column (modifier = Modifier
+    .padding(top = 20.dp)
+    .background(color = Color.Magenta),
+    ){
+    Text(stringResource(R.string.form),
+        modifier = Modifier.align(Alignment.Start),
+        fontSize = 20.sp,
+        color = Color.White)
+
+    Card (modifier = Modifier
+        .padding(top = 50.dp)
+        .background(color = Color.White)){
         OutlinedTextField(
             value = textNama,
             singleLine = true,
@@ -110,4 +129,4 @@ fun FormDataDiri(modifier: Modifier)
             }
         }
     }
-}
+}}
