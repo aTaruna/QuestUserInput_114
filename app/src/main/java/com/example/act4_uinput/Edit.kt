@@ -59,6 +59,7 @@ fun FormDataDiri(modifier: Modifier)
 
 
 Column (modifier = Modifier
+    .fillMaxWidth()
     .padding(top = 20.dp)
     .background(color = Color.Magenta),
     ){
@@ -69,12 +70,13 @@ Column (modifier = Modifier
 
     Card (modifier = Modifier
         .padding(top = 50.dp)
+        .fillMaxWidth(1f)
         .background(color = Color.White)){
         OutlinedTextField(
             value = textNama,
             singleLine = true,
             shape = MaterialTheme.shapes.large,
-            modifier = Modifier.width(250.dp),
+            modifier = Modifier.fillMaxWidth(),
             label = {Text("Nama Lengkap")},
             onValueChange = {textNama = it}
         )
@@ -118,26 +120,18 @@ Column (modifier = Modifier
         OutlinedTextField(
             value = textAlamat,
             singleLine = true,
-            modifier = Modifier.width(250.dp),
+            modifier = Modifier.fillMaxWidth(1f),
             label = {Text("Alamat")},
             onValueChange = {textAlamat = it}
         )
 
-        Divider(
-            modifier = Modifier.padding(bottom = dimensionResource(R.dimen.padding_medium),
-                top = dimensionResource(R.dimen.padding_medium)),
-            thickness = dimensionResource(R.dimen.divider_tipis),
-            color = Color.DarkGray)
+
         Button(
             modifier = Modifier
                 .padding(20.dp),
             enabled = textAlamat.isNotEmpty(),
             onClick = {nama = textNama; jenis = textJK; alamat = textAlamat}
         ) { Text(stringResource(R.string.submit)) }
-        Divider(
-            modifier = Modifier.padding(bottom = dimensionResource(R.dimen.padding_medium),
-                top = dimensionResource(R.dimen.padding_medium)),
-            thickness = dimensionResource(R.dimen.divider_tipis),
-            color = Color.DarkGray)
+
     }
 }}
